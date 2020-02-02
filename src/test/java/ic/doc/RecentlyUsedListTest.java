@@ -92,11 +92,12 @@ public class RecentlyUsedListTest {
   public void checkSize() {
 
     String wordA = "Hello";
-    int objA = 2;
-    int objB = 8;
 
     recentUsedList.add(wordA);
     assertThat(recentUsedList.getSize(), is(1));
+
+    int objA = 2;
+    int objB = 8;
 
     recentUsedList.add(objA);
     recentUsedList.add(objB);
