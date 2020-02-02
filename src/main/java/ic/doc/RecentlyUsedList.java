@@ -14,9 +14,10 @@ public class RecentlyUsedList {
   public boolean empty() {
 
     if (itemsList.size() == 0) {
-      return true; }
-    else {
-      return false; }
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public Object getFirst() {
@@ -28,8 +29,7 @@ public class RecentlyUsedList {
 
     if (position > itemsList.size()) {
       throw new IndexOutOfBoundsException("Index out of bounds");
-    }
-    else {
+    } else {
       return itemsList.get(position);
     }
   }
