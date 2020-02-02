@@ -1,24 +1,21 @@
 package ic.doc;
 
-import java.util.List;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecentlyUsedList {
 
   private List itemsList;
 
   public RecentlyUsedList() {
-    itemsList = new ArrayList();
+    itemsList = new ArrayList<Object>();
   }
 
   public boolean empty() {
 
-    if (itemsList.size() == 0) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    if (itemsList.size() == 0) { return true; }
+    else { return false; }
   }
 
   public Object getFirst() {
@@ -37,7 +34,7 @@ public class RecentlyUsedList {
   }
 
   public boolean check_duplicate(Object item) {
-    for (Object o : itemsList){
+    for (Object o : itemsList) {
       if (o == item) {
         return true;
       }
