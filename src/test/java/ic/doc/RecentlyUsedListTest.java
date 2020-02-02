@@ -87,4 +87,19 @@ public class RecentlyUsedListTest {
     assertThat(recentUsedList.getItem(0), is(5));
     assertThat(recentUsedList.getItem(1), is(4));
   }
+
+  @Test
+  public void checkSize() {
+
+    String wordA = "Hello";
+    int objA = 2;
+    int objB = 8;
+
+    recentUsedList.add(wordA);
+    assertThat(recentUsedList.getSize(), is(1));
+
+    recentUsedList.add(objA);
+    recentUsedList.add(objB);
+    assertThat(recentUsedList.getSize(), is(3));
+  }
 }

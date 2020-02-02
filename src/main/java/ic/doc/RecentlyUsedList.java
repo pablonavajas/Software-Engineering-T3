@@ -25,6 +25,11 @@ public class RecentlyUsedList {
     return itemsList.get(0);
   }
 
+  public int getSize() {
+
+    return itemsList.size();
+  }
+
   public Object getItem(int position) throws IndexOutOfBoundsException {
 
     if (position > itemsList.size()) {
