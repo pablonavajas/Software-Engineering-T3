@@ -1,19 +1,19 @@
 package ic.doc;
 
-import org.junit.Test;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.fail;
 
+import org.junit.Test;
+
 public class RecentlyUsedListTest {
 
-  private final RecentlyUsedList RUL = new RecentlyUsedList();
+  private final RecentlyUsedList recentUsedList = new RecentlyUsedList();
 
   @Test
   public void emptyList() {
 
-    assertThat(RUL.empty(), is(true));
+    assertThat(recentUsedList.empty(), is(true));
   }
 
   @Test
@@ -23,11 +23,11 @@ public class RecentlyUsedListTest {
     int obj2 = 9;
     int obj3 = 10;
 
-    RUL.add(obj1);
-    RUL.add(obj3);
-    RUL.add(obj2);
+    recentUsedList.add(obj1);
+    recentUsedList.add(obj3);
+    recentUsedList.add(obj2);
 
-    assertThat(RUL.getFirst(), is(obj2));
+    assertThat(recentUsedList.getFirst(), is(obj2));
 
 
   }
@@ -37,22 +37,20 @@ public class RecentlyUsedListTest {
 
     boolean thrown = false;
     try {
-      RUL.getItem(0);
+      recentUsedList.getItem(0);
       fail("My method did not throw when I expected it to");
-    }
-    catch (IndexOutOfBoundsException e) {
+    } catch (IndexOutOfBoundsException e) {
       thrown = true;
     }
     assertThat(thrown, is(true));
 
-    int obj_a = 1;
+    int objA = 1;
     thrown = false;
 
     try {
-      RUL.add(obj_a);
-      RUL.getItem(0);
-    }
-    catch (IndexOutOfBoundsException e) {
+      recentUsedList.add(objA);
+      recentUsedList.getItem(0);
+    } catch (IndexOutOfBoundsException e) {
       thrown = true;
     }
     assertThat(thrown, is(false));
@@ -60,33 +58,33 @@ public class RecentlyUsedListTest {
 
   @Test
   public void checkDuplicate() {
-    int obj_a = 4;
-    assertThat(RUL.check_duplicate(obj_a), is(false));
+    int objA = 4;
+    assertThat(recentUsedList.check_duplicate(objA), is(false));
 
-    RUL.add(obj_a);
-    assertThat(RUL.check_duplicate(obj_a), is(true));
+    recentUsedList.add(objA);
+    assertThat(recentUsedList.check_duplicate(objA), is(true));
 
-    int obj_b = 4;
-    assertThat(RUL.check_duplicate(obj_b), is(true));
+    int objB = 4;
+    assertThat(recentUsedList.check_duplicate(objB), is(true));
 
-    obj_b = 5;
-    assertThat(RUL.check_duplicate(obj_b), is(false));
+    objB = 5;
+    assertThat(recentUsedList.check_duplicate(objB), is(false));
 
-    RUL.add(obj_b);
-    assertThat(RUL.check_duplicate(obj_b), is(true));
-    assertThat(RUL.check_duplicate(obj_a), is(true));
+    recentUsedList.add(objB);
+    assertThat(recentUsedList.check_duplicate(objB), is(true));
+    assertThat(recentUsedList.check_duplicate(objA), is(true));
   }
 
   @Test
   public void checkAddList() {
 
-    int obj_a = 4;
-    RUL.add(obj_a);
-    assertThat(RUL.getItem(0), is(4));
+    int objA = 4;
+    recentUsedList.add(objA);
+    assertThat(recentUsedList.getItem(0), is(4));
 
-    int obj_b = 5;
-    RUL.add(obj_b);
-    assertThat(RUL.getItem(0), is(5));
-    assertThat(RUL.getItem(1), is(4));
+    int objB = 5;
+    recentUsedList.add(objB);
+    assertThat(recentUsedList.getItem(0), is(5));
+    assertThat(recentUsedList.getItem(1), is(4));
   }
 }
