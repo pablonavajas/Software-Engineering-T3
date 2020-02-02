@@ -1,12 +1,11 @@
 package ic.doc;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecentlyUsedList {
 
-  private List itemsList;
+  private List<Object> itemsList;
 
   public RecentlyUsedList() {
     itemsList = new ArrayList<Object>();
@@ -14,8 +13,10 @@ public class RecentlyUsedList {
 
   public boolean empty() {
 
-    if (itemsList.size() == 0) { return true; }
-    else { return false; }
+    if (itemsList.size() == 0) {
+      return true; }
+    else {
+      return false; }
   }
 
   public Object getFirst() {
